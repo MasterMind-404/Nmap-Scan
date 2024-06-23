@@ -1,4 +1,5 @@
 import subprocess
+import sys
 
 def scan_network(target, port_range, os_detection, version_detection):
     nmap_command = f"nmap -oN output.txt {target} -p {port_range}"
@@ -16,9 +17,15 @@ def scan_network(target, port_range, os_detection, version_detection):
         print(f"Error: {e}")
         sys.exit(1)
 
-    # Process the output
     with open("output.txt", "r") as f:
         output = f.read()
+
     print(output)
 
 if __name__ == "__main__":
+    target = "192.168.1.1"  # Replace with your target IP
+    port_range = "1-1000"  # Replace with your port range
+    os_detection = True  # Set to True for OS detection
+    version_detection = True  # Set to True for version detection
+
+    scan_network(target, port_range, os_detection, version_detection)
