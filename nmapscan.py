@@ -22,5 +22,3 @@ def scan_network(target, port_range, os_detection, version_detection):
     print(output)
 
 if __name__ == "__main__":
-    # Parse arguments and call scan_network function
-    #...
