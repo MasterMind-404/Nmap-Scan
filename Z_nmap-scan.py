@@ -6,28 +6,28 @@ import ipaddress
 
 def scan_network(target, port_range, os_detection, version_detection):
     """
-    Scan the network using Z_Nmap
+    Scan the network using Nmap
     """
-    Z_nmap_command = ["Z_nmap"]
+    nmap_command = ["nmap"]
 
     # Add target IP or network
-    Z_nmap_command.append(target)
+    nmap_command.append(target)
 
     # Add port range
     if port_range:
-        Z_nmap_command.append("-p")
-        Z_nmap_command.append(port_range)
+        nmap_command.append("-p")
+        nmap_command.append(port_range)
 
     # Add OS detection
     if os_detection:
-        Z_nmap_command.append("-O")
+        nmap_command.append("-O")
 
     # Add version detection
     if version_detection:
-        Z_nmap_command.append("-sV")
+        nmap_command.append("-sV")
 
-    # Run Z_Nmap command
-    output = subprocess.check_output(Z_nmap_command)
+    # Run Nmap command
+    output = subprocess.check_output(nmap_command)
     print(output.decode("utf-8"))
 
 def validate_ip_address(target):
